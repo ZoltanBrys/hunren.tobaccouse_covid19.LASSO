@@ -1,5 +1,5 @@
 ## this repo
-contains the R-syntax a manusctipt titled "Comparing the correlates of daily tobacco use and COVID-19 vaccination refusal among the Hungarian active population"
+contains the prepared data and the R-syntax to the manusctipt titled "Comparing the correlates of daily tobacco use and COVID-19 vaccination refusal among the Hungarian active population"
 
 ## data
 prepared data is in the C19.RDS object.
