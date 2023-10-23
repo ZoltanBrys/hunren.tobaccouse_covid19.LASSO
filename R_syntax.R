@@ -10,8 +10,8 @@
 # PACKAGES AND ENVIRONMENT
 ########################################################################################################
 #preparation
-  rm(list = ls()) #deleting prev data
-  if (!("stats" %in% (.packages()) )) stop("R Environment is not fully loaded!") #checking R
+  rm(list = ls())
+  if (!("stats" %in% (.packages()) )) stop("R Environment is not fully loaded!")
 
 #packages
   library(Matrix)
@@ -24,19 +24,19 @@
   library(pROC) #for ROC-AUC 95% CI
 
 #function for calculating Jaccard similarity measure
-jaccardc <- function (x, y) 
-{
-  
-  if (anyNA(x)) stop("NAs in x")
-  if (anyNA(y)) stop("NAs in y")
-  if (length(x) != length(x)) stop("Lenghts are non-equal!")
-  
-  c11 = sum(x == 1 & y == 1)
-  c10 = sum(x == 1 & y == 0)
-  c01 = sum(x == 0 & y == 1)
-  
-  return (c11 / (c11 + c10 + c01))
-}
+  jaccardc <- function (x, y) 
+  {
+    
+    if (anyNA(x)) stop("NAs in x")
+    if (anyNA(y)) stop("NAs in y")
+    if (length(x) != length(x)) stop("Lenghts are non-equal!")
+    
+    c11 = sum(x == 1 & y == 1)
+    c10 = sum(x == 1 & y == 0)
+    c01 = sum(x == 0 & y == 1)
+    
+    return (c11 / (c11 + c10 + c01))
+  }
 ########################################################################################################
 
 
@@ -52,7 +52,7 @@ jaccardc <- function (x, y)
 ########################################################################################################
 
 
-# Characteristics of the sample (Table 1.)
+# Characteristics of the sample (raw data for Table 2.)
 ########################################################################################################
   C19_sum_raw <- summary(C19)
   print(C19_sum_raw) 
@@ -249,7 +249,7 @@ jaccardc <- function (x, y)
   rownames(table3r) <- table3$varname
   table3
 
-#comparing perceived social norms
+#comparing perceived social norms betas
   wilcox.test(A2bet[,21], A3bet[,22])
   wilcoxonZ(A2bet[,21], A3bet[,22])
   abs(wilcoxonZ(A2bet[,21], A3bet[,22]))/ sqrt(1000)
@@ -257,7 +257,7 @@ jaccardc <- function (x, y)
 ########################################################################################################
 
 
-# Sensitivity analysis
+# Sensitivity analysis (A4+)
 ########################################################################################################
 # fit  logistic regression model
   A2AMEm <- glm(y1 ~ x4 + x20 + x21, data = C19, family = binomial)
@@ -267,7 +267,7 @@ jaccardc <- function (x, y)
   A2AME <- margins(A2AMEm, vce="bootstrap")
   A3AME <- margins(A3AMEm, vce="bootstrap")
 
-#Table 4
+#AME values
   summary(A2AME)
   summary(A3AME)
 
