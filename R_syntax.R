@@ -135,7 +135,7 @@
   
   plot(glmmodA2, xvar="lambda", label=TRUE, , ylab="", xlab="ln(λ)", 
        cex.lab=1, cex.axis=1, cex.main=1, cex.sub="1", ylim = c(-1, 1))
-  abline(v = log(quantile(A21se, probs = 0.75)), 
+  abline(v = log(quantile(A21se, probs = 0.50)), 
          col=c("blue", "blue"), 
          lty=2, 
          lwd=1)
@@ -197,7 +197,7 @@
   
   plot(glmmodA3, xvar="lambda", label=TRUE, , ylab="", xlab="ln(λ)", 
        cex.lab=1, cex.axis=1, cex.main=1, cex.sub="1", ylim = c(-1, 1))
-  abline(v = log(quantile(A31se, probs = 0.75)), 
+  abline(v = log(quantile(A31se, probs = 0.50)), 
          col=c("blue", "blue"), 
          lty=2, 
          lwd=1)
