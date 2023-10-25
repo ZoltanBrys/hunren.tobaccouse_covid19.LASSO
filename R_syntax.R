@@ -259,20 +259,20 @@
 
 # Sensitivity analysis (A4+)
 ########################################################################################################
-# fit  logistic regression model
+# fit  logistic regression model y1 ~ x4 + x20 + x21 ; y2 ~ x4 + x20 + x21
   A2AMEm <- glm(y1 ~ x4 + x20 + x21, data = C19, family = binomial)
   A3AMEm <- glm(y2 ~ x4 + x20 + x21, data = C19, family = binomial)
 
-# Calculate the Average Marginal Effects
+# Average Marginal Effects of y1 ~ x4 + x20 + x21 ; y2 ~ x4 + x20 + x21
   A2AME <- margins(A2AMEm, vce="bootstrap")
   A3AME <- margins(A3AMEm, vce="bootstrap")
 
-#AME values
+#AME values y1 ~ x4 + x20 + x21 ; y2 ~ x4 + x20 + x21
   summary(A2AME)
   summary(A3AME)
 
 #Nagelkerke y1 ~ x20
-  y1x20 <- glm(y1 ~ x20 , family=binomial(link='logit') , data=C19) #y1 and y2 simple modell
+  y1x20 <- glm(y1 ~ x20 , family=binomial(link='logit') , data=C19) 
   summary(y1x20)  
   exp(coefficients(y1x20)[2])
   exp(confint(y1x20))
@@ -284,7 +284,7 @@
   ci.auc(roc_result, method = "bootstrap", of = "AUC", percent = 0.95)
 
 #Nagelkerke y2 ~ x21
-  y2x21 <- glm(y2 ~ x21, family=binomial(link='logit') , data=C19) #y1 and y2 controlled for edu
+  y2x21 <- glm(y2 ~ x21, family=binomial(link='logit') , data=C19) 
   summary(y2x21 ) 
   exp(coefficients(y2x21)[2])
   exp(confint(y2x21))
