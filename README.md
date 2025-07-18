@@ -1,5 +1,5 @@
 ## this repo
-contains the prepared data and the R-syntax to the manusctipt titled "Comparing the correlates of daily tobacco use and COVID-19 vaccination refusal among the Hungarian active population"
+contains the prepared data and the R-syntax to the manusctipt titled "Comparing the correlates of daily tobacco use and COVID-19 vaccination refusal among Hungarian active population using multivariate logistics regression"
 
 ## data
 prepared data is in the C19.RDS object.
@@ -9,7 +9,7 @@ If you use this code in your research, please cite this repo and/or the paper as
 ...
 
 ## dependencies
-The code is written in R 4.3.1.
+The code is written in R 4.4.1.
 Following packages are required:
 * Matrix 1.5.3
 * MASS 7.3-60
